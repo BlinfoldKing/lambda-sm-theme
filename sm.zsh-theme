@@ -27,12 +27,19 @@ sudo_color() {
 
 # custom zsh prompt
 local return_code="%(?..%F{red}%? - )%F{default}";
-local SM_PREFIX="%F{yellow}╭─";
-local SM_MIDFIX="%F{yellow}├─";
-local SM_SUFFIX="%F{yellow}╰──→%F{default} ";
+
+# local SM_PREFIX="%F{yellow}╭─";
+# local SM_MIDFIX="%F{yellow}├─";
+local SM_SUFFIX=" %F{green}$(echo -e "\u03BB")%F{default} ";
+
+# local SM_PREFIX="%F{yellow}╭─";
+# local SM_MIDFIX="%F{yellow}├─";
+# local SM_SUFFIX="%F{yellow}╰──→%F{default} ";
+
+
 local SM_USER="%F{$(sudo_color)}%n%F{yellow}";
 local SM_DIR="%F{magenta}%1~%F{default}";
-local SM_CLOCK="${return_code}%F{cyan}%D%F{yellow} / %F{blue}%T%F{default} (%x) / $(battery_pct_prompt)";
+local SM_CLOCK="${return_code}%F{cyan}%D%F{yellow} / %F{blue}%T%F{default} (%x)";
 
 sm_prompt() {
     if [ $SM_PROMPT_LINES -eq 2 ] ; then
